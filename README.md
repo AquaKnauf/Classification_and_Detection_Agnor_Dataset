@@ -1,4 +1,4 @@
-# Object Detection Training for AgNOR Cell Detection
+# Object Detection and Classification Training for AgNOR Cell Detection
 
 This repository contains code for training a Faster R-CNN model with MobileNet-V3 backbone for cell detection in AgNOR (Argyrophilic Nucleolar Organizer Regions) images.
 
@@ -26,11 +26,13 @@ See `requirements.txt` for the complete list of dependencies.
 
 ```
 .
-├── train_object_detector.py    # Main training script
-├── dataset.py                  # Custom dataset class (to be implemented)
-├── utils.py                    # Utility functions
-├── coco_eval.py               # COCO evaluation utilities
-├── coco_utils.py              # COCO dataset utilities
+├── object_detector    # Main training script
+    ├──dataset.py
+├──classifier
+    ├── dataset.py             # Custom dataset class (to be implemented)
+    ├── model.py
+├── main.py                    # Classifier Model training
+├── model_objectdetector.py    # Object Detection training
 ├── requirements.txt           # Python dependencies
 └── README.md                  # This file
 ```
@@ -68,7 +70,13 @@ config = {
 ### 3. Run Training
 
 ```bash
-python train_object_detector.py
+python main.py
+```
+
+OR
+
+```bash
+python model_objectdetector.py
 ```
 
 ### 4. Using the ObjectDetectionTrainer Class
